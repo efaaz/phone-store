@@ -19,7 +19,7 @@ function showOnDisplay(phones){
         <div class="card-body">
          <h2 class="card-title">${phones.phone_name}</h2>
          <p>If a dog chews shoes whose shoes does he choose?</p>
-         <div class="card-actions justify-end">
+         <div class="card-actions justify-center pt-2">
             <button onclick='fetchingDetails("${phones.slug}")' class="btn btn-primary">Show Details</button>
          </div>
         </div>`

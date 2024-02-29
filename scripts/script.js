@@ -1,5 +1,4 @@
-
-const loadPhone = async (name)=>{
+const loadPhone = async (name=13)=>{
    const res = await fetch(`https://openapi.programming-hero.com/api/phones?search=${name}`);
    const data = await res.json();
    const phones = data.data
@@ -21,7 +20,7 @@ function showOnDisplay(phones){
          <h2 class="card-title">${phones.phone_name}</h2>
          <p>If a dog chews shoes whose shoes does he choose?</p>
          <div class="card-actions justify-end">
-            <button class="btn btn-primary">Buy Now</button>
+            <button onclick='fetchingDetails("${phones.slug}")' class="btn btn-primary">Show Details</button>
          </div>
         </div>`
         card.appendChild(div)
@@ -49,3 +48,43 @@ function loading(condition){
     
 }
 
+loadPhone()
+
+async function fetchingDetails(id){
+   const res = await fetch(`https://openapi.programming-hero.com/api/phone/${id}`);
+   const data = await res.json();
+   const phone = data.data
+   
+   showDetails(phone)
+}
+
+
+const showDetails = (phone)=>{
+    console.log(phone);
+    showModal.showModal()
+
+    let name = document.getElementById('name');
+    name.textContent = phone.name;
+    
+    let brand = document.getElementById('brand');
+    brand.textContent = phone.brand;
+
+    let storage = document.getElementById('storage');
+    storage.textContent = phone.mainFeatures.storage
+    
+    let size = document.getElementById('size');
+    size.textContent = phone.mainFeatures.displaySize
+
+    let chipset = document.getElementById('chipset');
+    chipset.textContent = phone.mainFeatures.chipSet
+
+    let memory = document.getElementById('memory');
+    memory.textContent = phone.mainFeatures.memory
+
+    let release = document.getElementById('release');
+    release.textContent = phone.releaseDate;
+
+    let sensors = document.getElementById('sensors');
+    sensors.textContent = phone.mainFeatures.sensors[1]
+
+}

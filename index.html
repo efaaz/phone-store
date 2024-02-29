@@ -39,7 +39,8 @@
                 </div>
               </div>
         </nav>
-
+    </header>
+    <main>
         <!-- Search input -->
         <div class="flex justify-center sm:mx-4">
                 <input id="search" type="text" placeholder="Type here" class="input input-bordered input-info w-full max-w-xs" />
@@ -54,8 +55,27 @@
         <div id="cards" class="cards my-10 container mx-auto grid lg:gap-4 md:gap-4 gap-1 lg:grid-cols-4 md:grid-cols-3 grid-cols-1 justify-center">
           
         </div>
-    </header>
-
+    </main>
+      <!-- Open the modal using ID.showModal() method -->
+      <button class="btn" onclick="showModal.showModal()">open modal</button>
+      <dialog id="showModal" class="modal modal-bottom sm:modal-middle">
+        <div class="modal-box">
+          <h3 class="font-bold text-lg" id="name">Hello!</h3>
+          <p class="pb-2 pt-6 font-bold">Brand: <span id="brand" class="font-normal">A</span></p>
+          <p class="py-2 font-bold">Storage: <span id="storage" class="font-normal">B</span></p>
+          <p class="py-2 font-bold">Display Size: <span id="size" class="font-normal">C</span></p>
+          <p class="py-2 font-bold">Chipset: <span id="chipset" class="font-normal"></span></p>
+          <p class="py-2 font-bold">Memory: <span id="memory" class="font-normal"></span></p>
+          <p class="py-2 font-bold">Release Date: <span id="release" class="font-normal"></span></p>
+          <p class="py-2 font-bold">Sensors: <span id="sensors" class="font-normal"></span></p>
+          <div class="modal-action">
+            <form method="dialog">
+              <!-- if there is a button in form, it will close the modal -->
+              <button class="btn">Close</button>
+            </form>
+          </div>
+        </div>
+      </dialog>
     <!-- <footer>
         <footer class="footer p-10 bg-base-200 text-base-content">
         <nav>
